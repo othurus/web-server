@@ -5,18 +5,20 @@ var port = 3000;
 //    res.send('Hello express!');
 //});
 
-var middleware = {
-    requireAuthentication: function(req, res, next){
-        console.log('Private route hit!');
-        next();
-    },
-    logger: function(req, res, next){
-        console.log('Request Date: ' + new Date().toString());
-        console.log('Request method: ' + req.method);
-        console.log('Original URL: ' + req.originalUrl);
-        next();
-    }
-};
+var middleware = require('./middleware.js');
+
+//var middleware = {
+//    requireAuthentication: function(req, res, next){
+//        console.log('Private route hit!');
+//        next();
+//    },
+//    logger: function(req, res, next){
+//        console.log('Request Date: ' + new Date().toString());
+//        console.log('Request method: ' + req.method);
+//        console.log('Original URL: ' + req.originalUrl);
+//        next();
+//    }
+//};
 
 app.use(middleware.logger);
 
